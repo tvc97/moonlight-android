@@ -1807,6 +1807,14 @@ public class MediaCodecDecoderRenderer extends VideoDecoderRenderer implements C
                     }
 //                    sb.append("分辨率：");
 //                    sb.append(initialWidth + "x" + initialHeight);
+                    sb.append(initialWidth + "x" + initialHeight + "@" + fps.totalFps);
+                    sb.append("\t");
+                    if (lastTwo.framesWithHostProcessingLatency > 0) {
+                        sb.append(context.getString(R.string.perf_overlay_hostprocessinglatency_lite,
+                                (float)lastTwo.minHostProcessingLatency / 10,
+                                (float)lastTwo.maxHostProcessingLatency / 10,
+                                (float)lastTwo.totalHostProcessingLatency / 10 / lastTwo.framesWithHostProcessingLatency)).append('\n');
+                    }
                     sb.append(context.getString(R.string.perf_overlay_lite_network_decoding_delay) + ": ");
                     sb.append(context.getString(R.string.perf_overlay_lite_net,(int)(rttInfo >> 32)));
                     sb.append(" / ");
