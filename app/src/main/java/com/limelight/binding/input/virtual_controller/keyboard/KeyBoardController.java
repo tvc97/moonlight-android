@@ -317,12 +317,12 @@ public class KeyBoardController {
         removeElements();
 
         DisplayMetrics screen = context.getResources().getDisplayMetrics();
-        int buttonSize = (int) (screen.heightPixels * 0.06f);
+        int buttonSize = (int) (screen.heightPixels * 0.08f);
 
         // Configure button at original position
         FrameLayout.LayoutParams configParams = new FrameLayout.LayoutParams(buttonSize, buttonSize);
-        configParams.leftMargin = 20 + buttonSize;
-        configParams.topMargin = 15;
+        configParams.leftMargin = 10 + buttonSize;
+        configParams.topMargin = 5;
         frame_layout.addView(buttonConfigure, configParams);
 
         // Measure the widths of both buttons
@@ -513,7 +513,7 @@ public class KeyBoardController {
                 int height = screen.heightPixels;
                 
                 // Calculate button size using the same logic as createDefaultLayout
-                int BUTTON_SIZE = 10;
+                int BUTTON_SIZE = 6;
                 int w = KeyBoardControllerConfigurationLoader.screenScale(BUTTON_SIZE, height);
                 int maxW = screen.widthPixels / 18;
 

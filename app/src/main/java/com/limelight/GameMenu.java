@@ -292,6 +292,14 @@ public class GameMenu implements Game.GameMenuCallbacks {
 
         options.add(new MenuOption(getString(R.string.game_menu_quit_session), game::quit));
 
+        options.add(new MenuOption(getString(R.string.game_menu_toggle_keyboard), true,
+                game::toggleKeyboard));
+
+        options.add(new MenuOption(getString(R.string.game_menu_advanced), true,
+                () -> showAdvancedMenu(device)));
+
+        options.add(new MenuOption(getString(R.string.game_menu_toggle_hud), true, game::toggleHUD));
+
         options.add(new MenuOption(getString(R.string.game_menu_upload_clipboard), true,
                 () -> game.sendClipboard(true)));
 
@@ -314,9 +322,6 @@ public class GameMenu implements Game.GameMenuCallbacks {
                     }
                 }));
 
-        options.add(new MenuOption(getString(R.string.game_menu_toggle_keyboard), true,
-                game::toggleKeyboard));
-
         options.add(new MenuOption(getString(game.isZoomModeEnabled() ? R.string.game_menu_disable_zoom_mode : R.string.game_menu_enable_zoom_mode), true,
                 game::toggleZoomMode));
 
@@ -324,9 +329,6 @@ public class GameMenu implements Game.GameMenuCallbacks {
             options.add(new MenuOption(getString(R.string.game_menu_rotate_screen), true,
                     game::rotateScreen));
         }
-
-        options.add(new MenuOption(getString(R.string.game_menu_advanced), true,
-                () -> showAdvancedMenu(device)));
 
         options.add(new MenuOption(getString(R.string.game_menu_cancel), null));
 
